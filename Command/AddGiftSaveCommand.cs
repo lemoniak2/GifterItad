@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Input;
 using Gifter.View;
 using Gifter.DataOperator;
+using System.Windows;
 
 namespace Gifter.Command
 {
@@ -25,7 +26,10 @@ namespace Gifter.Command
         public void Execute(object parameter)
         {
             Dialog p = new Dialog();
-            addGiftWindowViewModel.Gift.ImageUrl = @"\Images\"+p.CopyFileName(addGiftWindowViewModel.Gift.ImageUrl);
+            if (addGiftWindowViewModel.Gift.ImageUrl != null)
+            {
+                addGiftWindowViewModel.Gift.ImageUrl = @"\Images\" + p.CopyFileName(addGiftWindowViewModel.Gift.ImageUrl);
+            } else addGiftWindowViewModel.Gift.ImageUrl = "";
             addGiftWindowViewModel.GiftRepo.Create(addGiftWindowViewModel.Gift);
             (parameter as AddGiftWindow).Close();
         }
