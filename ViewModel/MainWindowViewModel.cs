@@ -17,7 +17,11 @@ namespace Gifter.ViewModel
     {
         public MainWindowViewModel()
         {
-            _giftrepo = new GiftRepository("Gifts.xml");
+            if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + @"\Images\"))
+            {
+                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"\Images\");
+            }
+            _giftrepo = new GiftRepository(AppDomain.CurrentDomain.BaseDirectory+"Gifts.xml");
             Gifts = new ObservableCollection<GiftViewModel>();
             Refresh();
             RandomCommand = new RandomCommand(this);

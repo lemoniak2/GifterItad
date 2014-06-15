@@ -33,8 +33,8 @@ namespace Gifter.DataOperator
         }
         public string CopyFileName(string imageUrl)
         {
-            string newString = Path.GetFileName(imageUrl); //Guid.NewGuid.ToString()
-            File.Copy(imageUrl, String.Format(@".\Images\{0}", newString), true);
+            string newString = Guid.NewGuid().ToString()+Path.GetFileName(imageUrl);
+            File.Copy(imageUrl, AppDomain.CurrentDomain.BaseDirectory+@"\Images\"+newString, true);
             return newString;
         }
     }

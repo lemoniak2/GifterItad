@@ -46,7 +46,7 @@ namespace Gifter.DAL
               new XElement("gift",
               new XElement("giftid", "1"),
               new XElement("name", "Nokia lumia"),
-              new XElement("imageurl", @"images\lumia.png"),
+              new XElement("imageurl", @"\Images\lumia.png"),
               new XElement("description", "Przykładowy opis..."
               ))));
             _root.Save(path); 
@@ -60,7 +60,7 @@ namespace Gifter.DAL
                            {
                                GiftId = int.Parse(n.Element("giftid").Value),
                                Name = n.Element("name").Value,
-                               ImageUrl = n.Element("imageurl").Value,
+                               ImageUrl = AppDomain.CurrentDomain.BaseDirectory+n.Element("imageurl").Value,
                                Description = n.Element("description").Value
                            });
             _root.Save(_path);
