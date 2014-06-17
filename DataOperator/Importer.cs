@@ -19,12 +19,7 @@ namespace Gifter.DataOperator
         }
         public string GetPersonById(int id)
         {
-            string result = "";
-            foreach (string line in File.ReadAllLines(_path)[id].Split(new char[] { ';' }))
-            {
-                result += line + "\n";
-            }
-            return result;
+            return String.Join(Environment.NewLine, File.ReadAllLines(_path)[id].Split(new char[] { ';' }));
         }
         public int GetLenght()
         {

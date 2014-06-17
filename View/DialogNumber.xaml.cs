@@ -10,13 +10,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Gifter.View
 {
     /// <summary>
     /// Interaction logic for DialogNumber.xaml
     /// </summary>
-    public partial class DialogNumber : Window
+    public partial class DialogNumber : MetroWindow
     {
         public DialogNumber()
         {

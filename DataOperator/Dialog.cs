@@ -12,7 +12,7 @@ namespace Gifter.DataOperator
         public string OpenDialog()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Pliki CSV (.txt)|*.txt";
+            openFileDialog.Filter = "Pliki CSV (.csv)|*.csv|Wszystkie pliki (*.*)|*.*";
             string result = "";
             if (openFileDialog.ShowDialog() == true)
             {

@@ -25,6 +25,12 @@ namespace Gifter.ViewModel
             Refresh();
             RandomCommand = new RelayCommand(() =>
             {
+                if (GetRandom == false)
+                {
+                    _dialognumber = new DialogNumber();
+                    _dialognumber.DataContext = this;
+                    _dialognumber.ShowDialog();
+                }
                 _importer = new Importer(PathCSV);
                 ImgVisibility = Visibility.Hidden;
                 TileVisibility = Visibility.Visible;
@@ -93,6 +99,12 @@ namespace Gifter.ViewModel
                 {
                     _giftrepo.DeleteAllGifts();
                     Refresh();
+                }
+                );
+            OkCommand = new RelayCommand(
+                () =>
+                {
+                    _dialognumber.Close();
                 }
                 );
         }
@@ -164,13 +176,13 @@ namespace Gifter.ViewModel
         }
         #endregion
         #region // All properties
-
+        public ICommand OkCommand { get; set; }
         public ICommand RandomCommand { get; private set; }
         public ICommand FromCSVCommand { get; set; }
         public ICommand GridSelectionChangedCommand { get; set; }
         public int GenerateNumberMax { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
-
+        public bool GetRandom { get; set; }
         private int _previousSelected;
         public int PreviousSelected
         {
@@ -237,6 +249,7 @@ namespace Gifter.ViewModel
         private int _count;
         private int _lenght;
         private Importer _importer;
+        private DialogNumber _dialognumber;
         public bool DrawEnable
         {
             get { return _drawEnable; }
