@@ -120,7 +120,7 @@
                     </Viewbox>
 
                     <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
-                        <TextBlock Margin="10,10,10,10" Width="150"  Height="150" Name="txtWinner" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Visibility="{Binding WinnerDataVisibility}" Text="{Binding WinnerData}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                        <TextBlock Foreground="White" Margin="10,10,10,10" Width="150"  Height="150" Name="txtWinner" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Visibility="{Binding WinnerDataVisibility}" Text="{Binding WinnerData}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
                     </Viewbox>
                     <Viewbox Grid.Row="2" Grid.Column="2" Stretch="Uniform" HorizontalAlignment="Right">
                         <Button IsEnabled="{Binding DrawEnable}" Content="Losuj" CommandParameter="{Binding ElementName=RandTile}" Command="{Binding RandomCommand}" Margin="5,5,5,5" Name="btnDraw" Height="32" Width="90" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
