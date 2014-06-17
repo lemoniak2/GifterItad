@@ -23,5 +23,10 @@ namespace Gifter.View
         {
             InitializeComponent();
         }
+
+        private void ThisWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
     }
 }

@@ -10,6 +10,8 @@ using System.Windows;
 using System.Windows.Media;
 using Gifter.DAL;
 using System.IO;
+using Gifter.DataOperator;
+using System.Windows.Threading;
 
 namespace Gifter.ViewModel
 {
@@ -17,14 +19,27 @@ namespace Gifter.ViewModel
     {
         public MainWindowViewModel()
         {
-            if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + @"\Images\"))
-            {
-                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"\Images\");
-            }
-            _giftrepo = new GiftRepository(AppDomain.CurrentDomain.BaseDirectory+"Gifts.xml");
+            _giftrepo = new GiftRepository(@".\..\..\Data\Reward\Gifts.xml");
             Gifts = new ObservableCollection<GiftViewModel>();
             Refresh();
-            RandomCommand = new RandomCommand(this);
+            RandomCommand = new RelayCommand(() =>
+            {
+                _importer = new Importer(PathCSV);
+                ImgVisibility = Visibility.Hidden;
+                TileVisibility = Visibility.Visible;
+                DrawEnable = false;
+                if (PathCSV == null)
+                {
+                    Randomize();
+                }
+                else
+                {
+                    DescVisibility = Visibility.Hidden;
+                    WinnerVisibility = Visibility.Visible;
+                    WinnerDataVisibility = Visibility.Visible;
+                    RandomizeFromFile();
+                }
+            });
             FromCSVCommand = new CSVCommand(this);
             GridSelectionChangedCommand = new GridSelectionChangedCommand(this);
             AddGift = new AddGiftCommand(this, _giftrepo);
@@ -41,10 +56,65 @@ namespace Gifter.ViewModel
                 Gifts.Add(item);
             }
         }
+        #region // Randomize with file or without
+        public void RandomizeFromFile()
+        {
+            _lenght = File.ReadAllLines(PathCSV).Length;
+            _count = 0;
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Tick += new EventHandler(timer_Tick1);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 200);
+            timer.Start();
+        }
+        void timer_Tick1(object sender, EventArgs e)
+        {
+            _count++;
+            if (_count <= 40)
+            {
+                Random rnd = new Random();
+                RandomValue = rnd.Next(1, _lenght + 1).ToString();
+            }
+            else
+            {
+                WinnerText = "";
+                WinnerColor = new SolidColorBrush(Color.FromArgb(204, 31, 199, 31));
+                (sender as DispatcherTimer).Stop();
+            }
+            WinnerData = _importer.GetPersonById(int.Parse(RandomValue) - 1).ToString();
+        }
+        public void Randomize()
+        {
+            _count = 0;
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            timer.Start();
+        }
+        void timer_Tick(object sender, EventArgs e)
+        {
+            _count++;
+            if (_count <= 50)
+            {
+                Random rnd = new Random();
+                RandomValue = rnd.Next(1, GenerateNumberMax).ToString();
+            }
+            else
+            {
+                WinnerText = "WYGRAŁ";
+                WinnerColor = new SolidColorBrush(Color.FromArgb(204, 31, 199, 31));
+                WinnerVisibility = Visibility.Visible;
+                DescVisibility = Visibility.Hidden;
+                DrawEnable = false;
+                (sender as DispatcherTimer).Stop();
+            }
+        }
+        #endregion
+
+        public GiftViewModel Gift { get; set; }
         public ICommand RandomCommand { get; private set; }
         public ICommand FromCSVCommand { get; set; }
         public ICommand GridSelectionChangedCommand { get; set; }
-
+        public int GenerateNumberMax { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
         private int _previousSelected;
@@ -110,6 +180,9 @@ namespace Gifter.ViewModel
             set { _winnerDataVisibility = value; OnPropertyChanged("WinnerDataVisibility"); }
         }
         private bool _drawEnable = true;
+        private int _count;
+        private int _lenght;
+        private Importer _importer;
         public bool DrawEnable
         {
             get { return _drawEnable; }

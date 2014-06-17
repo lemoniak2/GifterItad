@@ -15,11 +15,12 @@ namespace Gifter.DAL
         private XElement _root;
         public GiftRepository(string path)
         {
-            _path = path;
+            _path = Path.GetFullPath(path) ;
             if (!File.Exists(path))
             {
                 CreateEmptyFile(path);
-            } else _root = XElement.Load(path);
+            }
+            else _root = XElement.Load(path);
         }
         public void Delete(GiftViewModel g)
         {
@@ -40,7 +41,7 @@ namespace Gifter.DAL
 
         public void CreateEmptyFile(string path)
         {
-            _root = 
+            _root =
               (
               new XElement("root",
               new XElement("gift",
@@ -49,7 +50,7 @@ namespace Gifter.DAL
               new XElement("imageurl", @"\Images\lumia.png"),
               new XElement("description", "Przykładowy opis..."
               ))));
-            _root.Save(path); 
+            _root.Save(path);
         }
 
         public IEnumerable<GiftViewModel> GetAllGifts()
@@ -60,7 +61,7 @@ namespace Gifter.DAL
                            {
                                GiftId = int.Parse(n.Element("giftid").Value),
                                Name = n.Element("name").Value,
-                               ImageUrl = AppDomain.CurrentDomain.BaseDirectory+n.Element("imageurl").Value,
+                               ImageUrl = AppDomain.CurrentDomain.BaseDirectory + n.Element("imageurl").Value,
                                Description = n.Element("description").Value
                            });
             _root.Save(_path);

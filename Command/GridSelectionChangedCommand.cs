@@ -39,13 +39,13 @@ namespace Gifter.Command
         }
         public void Execute(object parameter)
         {
-            DataGrid dgGifts = (parameter as DataGrid);
+            //DataGrid dgGifts = (parameter as DataGrid);
             
-            if (dgGifts.SelectedIndex == -1)
-            {
-                dgGifts.SelectedIndex = _mainWindowViewModel.PreviousSelected;
-            }
-            _mainWindowViewModel.PreviousSelected = dgGifts.SelectedIndex;
+            //if (dgGifts.SelectedIndex == -1)
+            //{
+            //    dgGifts.SelectedIndex = _mainWindowViewModel.PreviousSelected;
+            //}
+            //_mainWindowViewModel.PreviousSelected = dgGifts.SelectedIndex;
             _mainWindowViewModel.ImgVisibility = Visibility.Visible;
             _mainWindowViewModel.TileVisibility = Visibility.Hidden;
             _mainWindowViewModel.WinnerText = "";

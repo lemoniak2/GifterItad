@@ -61,10 +61,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Command\AddGiftCancelCommand.cs" />
     <Compile Include="Command\AddGiftCommand.cs" />
-    <Compile Include="Command\AddGiftLoadCommand.cs" />
-    <Compile Include="Command\AddGiftSaveCommand.cs" />
+    <Compile Include="Command\AddGiftRelayCommand.cs" />
     <Compile Include="Command\CSVCommand.cs" />
     <Compile Include="Command\DeleteGiftCommand.cs" />
     <Compile Include="Command\GridSelectionChangedCommand.cs" />
@@ -127,15 +125,21 @@
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\lumia.png" />
-    <Resource Include="Images\ps3.png" />
-    <Resource Include="Images\Xbox.jpg" />
+    <Resource Include="Data\Images\lumia.png" />
+    <Resource Include="Data\Images\ps3.png" />
+    <Resource Include="Data\Images\Xbox.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\WindowsIcons-license.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Participants\Participants.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Reward\Gifts.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

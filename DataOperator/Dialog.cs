@@ -12,7 +12,7 @@ namespace Gifter.DataOperator
         public string OpenDialog()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Pliki CSV (.csv)|*.csv";
+            openFileDialog.Filter = "Pliki CSV (.txt)|*.txt";
             string result = "";
             if (openFileDialog.ShowDialog() == true)
             {
@@ -31,11 +31,6 @@ namespace Gifter.DataOperator
             }
             return result;
         }
-        public string CopyFileName(string imageUrl)
-        {
-            string newString = Guid.NewGuid().ToString()+Path.GetFileName(imageUrl);
-            File.Copy(imageUrl, AppDomain.CurrentDomain.BaseDirectory+@"\Images\"+newString, true);
-            return newString;
-        }
+        
     }
 }

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <gift>
+    <giftid>1</giftid>
+    <name>Nokia lumia</name>
+    <imageurl>.\..\..\Data\Images\lumia.png</imageurl>
+    <description>Przykładowy opis...</description>
+  </gift>
+  <gift>
+    <giftid>2</giftid>
+    <name>Play Station 3</name>
+    <imageurl>.\..\..\Data\Images\ps3.png</imageurl>
+    <description>Przykładowy opis...</description>
+  </gift>
+  <gift>
+    <giftid>3</giftid>
+    <name>Xbox 360</name>
+    <imageurl>.\..\..\Data\Images\Xbox.jpg</imageurl>
+    <description>Przykładowy opis...</description>
+  </gift>
+</root>
