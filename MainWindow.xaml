@@ -72,7 +72,7 @@
     <Border BorderBrush="#CC119EDA" BorderThickness="2">
         <Grid>
             <GroupBox Header="Nagrody" Name="grbGifts" VerticalAlignment="Stretch" HorizontalAlignment="Left" Background="#CC119EDA" VerticalContentAlignment="Top" BorderBrush="#CC119EDA">
-                <DataGrid ItemsSource="{Binding Gifts}" Height="Auto" HeadersVisibility="None" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="dgGifts" VerticalAlignment="Top" Width="108" BorderBrush="#CC119EDA" HorizontalGridLinesBrush="#FFD8D8D9" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" HorizontalContentAlignment="Stretch" Background="#FF190000">
+                <DataGrid ItemsSource="{Binding Gifts}" SelectedItem="{Binding SelectedGift}" Height="Auto" HeadersVisibility="None" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="dgGifts" VerticalAlignment="Top" Width="108" BorderBrush="#CC119EDA" HorizontalGridLinesBrush="#FFD8D8D9" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" HorizontalContentAlignment="Stretch" Background="#FF190000">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding GridSelectionChangedCommand}" CommandParameter="{Binding ElementName=dgGifts}"/>
