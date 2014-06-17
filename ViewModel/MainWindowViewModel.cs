@@ -13,6 +13,7 @@ using System.IO;
 using Gifter.DataOperator;
 using System.Windows.Threading;
 using Gifter.View;
+using Gifter.Model;
 
 namespace Gifter.ViewModel
 {
@@ -20,6 +21,7 @@ namespace Gifter.ViewModel
     {
         public MainWindowViewModel()
         {
+            SelectedGift = new GiftViewModel();
             _giftrepo = new GiftRepository(@".\..\..\Data\Reward\Gifts.xml");
             Gifts = new ObservableCollection<GiftViewModel>();
             Refresh();
@@ -87,8 +89,7 @@ namespace Gifter.ViewModel
             DeleteGift = new RelayCommand(
                 () =>
                 {
-                    // Usuwanie jednego
-
+                    _giftrepo.Delete(SelectedGift);
                     Refresh();
                 },
                 (object p) =>
@@ -196,9 +197,8 @@ namespace Gifter.ViewModel
             get { return _questionMarkVisibility; }
             set { _questionMarkVisibility = value; OnPropertyChanged("QuestionMarkVisibility"); }
         }
-
-        private int _selectedGift;
-        public int SelectedGift
+        private GiftViewModel _selectedGift;
+        public GiftViewModel SelectedGift
         {
             get { return _selectedGift; }
             set { _selectedGift = value; OnPropertyChanged("SelectedGift"); }
