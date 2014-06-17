@@ -109,8 +109,8 @@ namespace Gifter.ViewModel
             }
         }
         #endregion
+        #region // All properties
 
-        public GiftViewModel Gift { get; set; }
         public ICommand RandomCommand { get; private set; }
         public ICommand FromCSVCommand { get; set; }
         public ICommand GridSelectionChangedCommand { get; set; }
@@ -202,5 +202,6 @@ namespace Gifter.ViewModel
                 p(this, new PropertyChangedEventArgs(name));
             }
         }
+        #endregion
     }
 }
