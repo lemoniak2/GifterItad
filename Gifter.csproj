@@ -65,6 +65,7 @@
     <Compile Include="Dal\GiftRepository.cs" />
     <Compile Include="DataOperator\Dialog.cs" />
     <Compile Include="DataOperator\Importer.cs" />
+    <Compile Include="Helper\ButtonHelper.cs" />
     <Compile Include="Model\Gift.cs" />
     <Compile Include="ViewModel\AddGiftWindowViewModel.cs" />
     <Compile Include="ViewModel\GiftViewModel.cs" />

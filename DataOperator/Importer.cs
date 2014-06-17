@@ -29,8 +29,8 @@ namespace Gifter.DataOperator
         {
             var tocopy = Path.Combine(currentProjectPath, @".\..\..\Data\Images\");
             var tmp = Path.GetFullPath(imageUrl);
-            var tmp2 = Path.GetFullPath(tocopy) + Path.GetFileName(tmp) ;
-            File.Copy(tmp, tmp2,true);
+            var tmp2 = Path.GetFullPath(tocopy) + Path.GetFileName(tmp);
+            File.Copy(tmp, tmp2, true);
             return @".\..\..\Data\Images\" + Path.GetFileName(tmp);
         }
     }

@@ -34,6 +34,7 @@ namespace Gifter.ViewModel
                 _importer = new Importer(PathCSV);
                 ImgVisibility = Visibility.Hidden;
                 TileVisibility = Visibility.Visible;
+                QuestionMarkVisibility = Visibility.Visible;
                 DrawEnable = false;
                 if (PathCSV == null)
                 {
@@ -129,7 +130,7 @@ namespace Gifter.ViewModel
             _count = 0;
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(timer_Tick1);
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 200);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
             timer.Start();
         }
         void timer_Tick1(object sender, EventArgs e)
@@ -142,6 +143,7 @@ namespace Gifter.ViewModel
             }
             else
             {
+                QuestionMarkVisibility = Visibility.Hidden;
                 WinnerText = "";
                 WinnerColor = new SolidColorBrush(Color.FromArgb(204, 31, 199, 31));
                 (sender as DispatcherTimer).Stop();
@@ -166,6 +168,7 @@ namespace Gifter.ViewModel
             }
             else
             {
+                QuestionMarkVisibility = Visibility.Hidden;
                 WinnerText = "WYGRAŁ";
                 WinnerColor = new SolidColorBrush(Color.FromArgb(204, 31, 199, 31));
                 WinnerVisibility = Visibility.Visible;
@@ -182,12 +185,23 @@ namespace Gifter.ViewModel
         public ICommand GridSelectionChangedCommand { get; set; }
         public int GenerateNumberMax { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
+
         public bool GetRandom { get; set; }
-        private int _previousSelected;
-        public int PreviousSelected
+
+
+
+        private Visibility _questionMarkVisibility = Visibility.Hidden;
+        public Visibility QuestionMarkVisibility
         {
-            get { return _previousSelected; }
-            set { _previousSelected = value; OnPropertyChanged("PreviousSelected"); }
+            get { return _questionMarkVisibility; }
+            set { _questionMarkVisibility = value; OnPropertyChanged("QuestionMarkVisibility"); }
+        }
+
+        private int _selectedGift;
+        public int SelectedGift
+        {
+            get { return _selectedGift; }
+            set { _selectedGift = value; OnPropertyChanged("SelectedGift"); }
         }
         private string _winnerText;
         public string WinnerText

@@ -18,4 +18,28 @@
     <imageurl>.\..\..\Data\Images\Xbox.jpg</imageurl>
     <description>Przykładowy opis...</description>
   </gift>
+  <gift>
+    <giftid>4</giftid>
+    <name>fsdfsdfsdfs</name>
+    <imageurl>.\..\..\Data\Images\1-252261.png</imageurl>
+    <description>fsdfsdfdssdfdsfsfdfdsfsdfsdfsdfsdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</description>
+  </gift>
+  <gift>
+    <giftid>5</giftid>
+    <name>fsdgdfgfdfgfd</name>
+    <imageurl>.\..\..\Data\Images\1-258241.png</imageurl>
+    <description>gsdfgfdgdfgdfgfgf</description>
+  </gift>
+  <gift>
+    <giftid>6</giftid>
+    <name>fdsdfsdf</name>
+    <imageurl>.\..\..\Data\Images\images.jpg</imageurl>
+    <description>fdsfdsfdsfsd</description>
+  </gift>
+  <gift>
+    <giftid>7</giftid>
+    <name>dasdasdas</name>
+    <imageurl>.\..\..\Data\Images\Ps4.jpg</imageurl>
+    <description>dasdasdasdasd</description>
+  </gift>
 </root>
