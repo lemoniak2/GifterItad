@@ -17,16 +17,11 @@ namespace Gifter.ViewModel
         public AddGiftWindowViewModel()
         {
             _currentpath = Path.GetFullPath(@".\");
-            CancelCommand = new RelayCommand(() =>
-                {
-                    // Tutaj bedzie zamykanie okna, tylko jak?
-                });
             SaveCommand = new RelayCommand(() =>
                 {
                     Importer p = new Importer();
                     Gift.ImageUrl = p.CopyFileName(Gift.ImageUrl, _currentpath);
                     GiftRepo.Create(Gift);
-                    //zamykanie
                 }, (object p) =>
                 {
                     if (String.IsNullOrEmpty(Gift.Name) | String.IsNullOrEmpty(Gift.Description) | String.IsNullOrEmpty(Gift.ImageUrl))

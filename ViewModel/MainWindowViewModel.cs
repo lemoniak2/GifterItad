@@ -32,28 +32,31 @@ namespace Gifter.ViewModel
                     _dialognumber = new DialogNumber();
                     _dialognumber.DataContext = this;
                     _dialognumber.ShowDialog();
-                }
-                _importer = new Importer(PathCSV);
-                ImgVisibility = Visibility.Hidden;
-                TileVisibility = Visibility.Visible;
-                QuestionMarkVisibility = Visibility.Visible;
-                DrawEnable = false;
-                if (PathCSV == null)
-                {
                     Randomize();
                 }
                 else
                 {
+                    _importer = new Importer(PathCSV);
                     DescVisibility = Visibility.Hidden;
                     WinnerVisibility = Visibility.Visible;
                     WinnerDataVisibility = Visibility.Visible;
                     RandomizeFromFile();
                 }
+                ImgVisibility = Visibility.Hidden;
+                TileVisibility = Visibility.Visible;
+                QuestionMarkVisibility = Visibility.Visible;
+                DrawEnable = false;
             });
             FromCSVCommand = new RelayCommand(
                 () => 
                 {
                     PathCSV = new Dialog().OpenDialog();
+                    if (!String.IsNullOrEmpty(PathCSV))
+                    {
+                        GetRandom = true;
+                    }
+                    else GetRandom = false;
+                     
                 },
                 (object p) => 
                 { 
@@ -184,7 +187,12 @@ namespace Gifter.ViewModel
         public ICommand RandomCommand { get; private set; }
         public ICommand FromCSVCommand { get; set; }
         public ICommand GridSelectionChangedCommand { get; set; }
-        public int GenerateNumberMax { get; set; }
+        private int _generateNumberMax = 1;
+        public int GenerateNumberMax 
+        {
+            get { return _generateNumberMax; }
+            set { _generateNumberMax = value; } 
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         public bool GetRandom { get; set; }
