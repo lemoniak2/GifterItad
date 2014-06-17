@@ -43,11 +43,7 @@ namespace Gifter.ViewModel
                 {
                     Gift.ImageUrl = new Dialog().OpenDialog2();
                 });
-            Gift = new GiftViewModel()
-                {
-                    Name = "Podaj nazwe...",
-                    Description = "Podaj opis...",
-                };
+            Gift = new GiftViewModel();
         }
 
         public AddGiftWindowViewModel(DAL.GiftRepository _giftrepo)

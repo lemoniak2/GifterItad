@@ -115,6 +115,9 @@
                     <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
                         <controls:Tile Grid.Column="1"  Grid.Row="1" Background="{Binding WinnerColor}" Name="WinnerTile" TiltFactor="2" Count="{Binding WinnerText}" Visibility="{Binding WinnerVisibility}"></controls:Tile>
                     </Viewbox>
+                    <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
+                        <controls:Tile Grid.Column="1" Opacity="0.2"  Background="Transparent" CountFontSize="155" Grid.Row="1" Name="QuestionMarkTile" TiltFactor="2" Count="?" Visibility="{Binding QuestionMarkVisibility}"></controls:Tile>
+                    </Viewbox>
 
                     <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
                         <TextBlock Margin="10,10,10,10" Width="150"  Height="150" Name="txtWinner" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Visibility="{Binding WinnerDataVisibility}" Text="{Binding WinnerData}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />

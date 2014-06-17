@@ -28,6 +28,7 @@ namespace Gifter.ViewModel
                 _importer = new Importer(PathCSV);
                 ImgVisibility = Visibility.Hidden;
                 TileVisibility = Visibility.Visible;
+                QuestionMarkVisibility = Visibility.Visible;
                 DrawEnable = false;
                 if (PathCSV == null)
                 {
@@ -130,6 +131,7 @@ namespace Gifter.ViewModel
             }
             else
             {
+                QuestionMarkVisibility = Visibility.Hidden;
                 WinnerText = "";
                 WinnerColor = new SolidColorBrush(Color.FromArgb(204, 31, 199, 31));
                 (sender as DispatcherTimer).Stop();
@@ -154,6 +156,7 @@ namespace Gifter.ViewModel
             }
             else
             {
+                QuestionMarkVisibility = Visibility.Hidden;
                 WinnerText = "WYGRAŁ";
                 WinnerColor = new SolidColorBrush(Color.FromArgb(204, 31, 199, 31));
                 WinnerVisibility = Visibility.Visible;
@@ -170,6 +173,14 @@ namespace Gifter.ViewModel
         public ICommand GridSelectionChangedCommand { get; set; }
         public int GenerateNumberMax { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
+
+
+        private Visibility _questionMarkVisibility = Visibility.Hidden;
+        public Visibility QuestionMarkVisibility
+        {
+            get { return _questionMarkVisibility; }
+            set { _questionMarkVisibility = value; OnPropertyChanged("QuestionMarkVisibility"); }
+        }
 
         private int _selectedGift;
         public int SelectedGift

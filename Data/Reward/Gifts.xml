@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<root >
+<root>
   <gift>
     <giftid>1</giftid>
     <name>Nokia lumia</name>
@@ -17,5 +17,17 @@
     <name>Xbox 360</name>
     <imageurl>.\..\..\Data\Images\Xbox.jpg</imageurl>
     <description>Przykładowy opis...</description>
+  </gift>
+  <gift>
+    <giftid>4</giftid>
+    <name>fsdfsdfsdfs</name>
+    <imageurl>.\..\..\Data\Images\1-252261.png</imageurl>
+    <description>fsdfsdfdssdfdsfsfdfdsfsdfsdfsdfsdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</description>
+  </gift>
+  <gift>
+    <giftid>5</giftid>
+    <name>fsdgdfgfdfgfd</name>
+    <imageurl>.\..\..\Data\Images\1-258241.png</imageurl>
+    <description>gsdfgfdgdfgdfgfgf</description>
   </gift>
 </root>
