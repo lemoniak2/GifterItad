@@ -27,7 +27,7 @@ namespace Gifter.ViewModel
                     Gift.ImageUrl = p.CopyFileName(Gift.ImageUrl, _currentpath);
                     GiftRepo.Create(Gift);
                     //zamykanie
-                }, () =>
+                }, (object p) =>
                 {
                     if (String.IsNullOrEmpty(Gift.Name) | String.IsNullOrEmpty(Gift.Description) | String.IsNullOrEmpty(Gift.ImageUrl))
                     {

@@ -22,6 +22,11 @@ namespace Gifter.DAL
             }
             else _root = XElement.Load(path);
         }
+        public void DeleteAllGifts()
+        {
+            _root.Descendants("gift").Take(_root.Descendants("gift").Count()).Remove();
+            _root.Save(_path);
+        }
         public void Delete(GiftViewModel g)
         {
             _root.Descendants("gift").Where(n => n.Element("giftid")

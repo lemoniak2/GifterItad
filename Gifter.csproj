@@ -61,12 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Command\AddGiftCommand.cs" />
-    <Compile Include="Command\AddGiftRelayCommand.cs" />
-    <Compile Include="Command\CSVCommand.cs" />
-    <Compile Include="Command\DeleteGiftCommand.cs" />
-    <Compile Include="Command\GridSelectionChangedCommand.cs" />
-    <Compile Include="Command\RandomCommand.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Dal\GiftRepository.cs" />
     <Compile Include="DataOperator\Dialog.cs" />
     <Compile Include="DataOperator\Importer.cs" />
@@ -76,6 +71,9 @@
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\AddGiftWindow.xaml.cs">
       <DependentUpon>AddGiftWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DialogNumber.xaml.cs">
+      <DependentUpon>DialogNumber.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -96,6 +94,10 @@
     <Page Include="View\AddGiftWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DialogNumber.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
