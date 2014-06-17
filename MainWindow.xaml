@@ -96,7 +96,7 @@
                     <Image Grid.Column="0" Grid.Row="1" Visibility="{Binding ImgVisibility}" Source="{Binding ElementName=dgGifts,Path=SelectedItem.ImageUrl}" HorizontalAlignment="Left" Margin="5,5,5,5" Name="imgGift" Stretch="Fill" VerticalAlignment="Top" />
 
                     <Viewbox Grid.Row="1" Grid.Column="0" Stretch="Uniform">
-                        <controls:Tile Grid.Column="0"  Grid.Row="1" Name="RandTile" TiltFactor="2" Visibility="{Binding TileVisibility}" Count="{Binding RandomValue}" Background="#CC119EDA"></controls:Tile>
+                        <controls:Tile Grid.Column="0" CountFontSize="60" Grid.Row="1" Name="RandTile" TiltFactor="2" Visibility="{Binding TileVisibility}" Count="{Binding RandomValue}" Background="#CC119EDA"></controls:Tile>
                     </Viewbox>
 
                     <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
@@ -104,10 +104,10 @@
                     </Viewbox>
 
                     <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
-                        <TextBlock Margin="5,5,5,5" Width="150"  Height="150" Name="txtWinner" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Visibility="{Binding WinnerDataVisibility}" Text="{Binding WinnerData}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                        <TextBlock Margin="10,10,10,10" Width="150"  Height="150" Name="txtWinner" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Visibility="{Binding WinnerDataVisibility}" Text="{Binding WinnerData}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
                     </Viewbox>
                     <Viewbox Grid.Row="2" Grid.Column="2" Stretch="Uniform" HorizontalAlignment="Right">
-                    <Button IsEnabled="{Binding DrawEnable}" Content="Losuj" CommandParameter="{Binding ElementName=RandTile}" Command="{Binding RandomCommand}" Margin="5,5,5,5" Name="btnDraw" Height="32" Width="90" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
+                        <Button IsEnabled="{Binding DrawEnable}" Content="Losuj" CommandParameter="{Binding ElementName=RandTile}" Command="{Binding RandomCommand}" Margin="5,5,5,5" Name="btnDraw" Height="32" Width="90" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
                     </Viewbox>
                     <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
                         <TextBlock Margin="5,5,5,5" Width="150"  Height="150" Name="txtDescription" TextWrapping="Wrap" Visibility="{Binding DescVisibility}" HorizontalAlignment="Center"  VerticalAlignment="Top" Text="{Binding ElementName=dgGifts, Path=SelectedItem.Description}" />

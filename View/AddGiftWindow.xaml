@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         Title="Dodaj nagrodę" Height="292" Width="257" 
+        xmlns:helpers="clr-namespace:Gifter.Helper"              
         xmlns:locals="clr-namespace:Gifter.ViewModel" ResizeMode="NoResize" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
     <controls:MetroWindow.Resources>
         <ControlTemplate x:Key="TextBoxErrorTemplate">
@@ -31,7 +32,7 @@
             <TextBox TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding Gift.Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True}" Validation.ErrorTemplate="{StaticResource TextBoxErrorTemplate}" Height="105" HorizontalAlignment="Left" Margin="89,57,0,0" Name="textBox2" VerticalAlignment="Top" Width="125" />
         <Label Content="Obrazek" Height="28" HorizontalAlignment="Left" Margin="12,170,0,0" Name="label3" VerticalAlignment="Top" Width="64" />
         <Button Command="{Binding LoadCommand}" Content="Wczytaj" Height="28" HorizontalAlignment="Left" Margin="89,0,0,46" Name="button1" VerticalAlignment="Bottom" Width="125" />
-        <Button CommandParameter="{Binding ElementName=ThisWindow}" Command="{Binding CancelCommand}"  Content="Anuluj" Height="30" HorizontalAlignment="Left" Margin="132,204,0,0" Name="button2" VerticalAlignment="Top" Width="82" />
+            <Button helpers:ButtonHelper.DialogResult="False"  Content="Anuluj" Height="30" HorizontalAlignment="Left" Margin="132,204,0,0" Name="button2" VerticalAlignment="Top" Width="82" />
         <Button CommandParameter="{Binding ElementName=ThisWindow}" Command="{Binding SaveCommand}" Content="Zapisz" Height="30" HorizontalAlignment="Left" Margin="12,204,0,0" Name="button3" VerticalAlignment="Top" Width="82" />
            
         </Grid>

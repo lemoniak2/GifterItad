@@ -117,11 +117,11 @@ namespace Gifter.ViewModel
         public int GenerateNumberMax { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private int _previousSelected;
-        public int PreviousSelected
+        private int _selectedGift;
+        public int SelectedGift
         {
-            get { return _previousSelected; }
-            set { _previousSelected = value; OnPropertyChanged("PreviousSelected"); }
+            get { return _selectedGift; }
+            set { _selectedGift = value; OnPropertyChanged("SelectedGift"); }
         }
         private string _winnerText;
         public string WinnerText

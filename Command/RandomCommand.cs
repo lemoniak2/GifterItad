@@ -61,7 +61,7 @@ namespace Gifter.Command
             _count = 0;
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(timer_Tick);
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 200);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
             timer.Start();
         }
         void timer_Tick(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace Gifter.Command
             _count = 0;
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(timer_Tick1);
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 200);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
             timer.Start();
         }
         void timer_Tick1(object sender, EventArgs e)

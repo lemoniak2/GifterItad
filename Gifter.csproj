@@ -62,14 +62,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command\AddGiftCommand.cs" />
-    <Compile Include="Command\AddGiftRelayCommand.cs" />
     <Compile Include="Command\CSVCommand.cs" />
     <Compile Include="Command\DeleteGiftCommand.cs" />
     <Compile Include="Command\GridSelectionChangedCommand.cs" />
     <Compile Include="Command\RandomCommand.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Dal\GiftRepository.cs" />
     <Compile Include="DataOperator\Dialog.cs" />
     <Compile Include="DataOperator\Importer.cs" />
+    <Compile Include="Helper\ButtonHelper.cs" />
     <Compile Include="Model\Gift.cs" />
     <Compile Include="ViewModel\AddGiftWindowViewModel.cs" />
     <Compile Include="ViewModel\GiftViewModel.cs" />
