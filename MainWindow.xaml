@@ -23,6 +23,19 @@
                        Text="Dodaj" />
                 </StackPanel>
             </Button>
+            <Button HorizontalAlignment="Left" Command="{Binding DeleteAllGifts}" CommandParameter="{Binding ElementName=dgGifts,Path=SelectedItem}">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20"
+                       Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Visual="{StaticResource appbar_app_remove}" Stretch="Fill" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="0 0 0 0"
+                       VerticalAlignment="Center"
+                       Text="Usuń wsz." />
+                </StackPanel>
+            </Button>
             <Button HorizontalAlignment="Left" Command="{Binding DeleteGift}" CommandParameter="{Binding ElementName=dgGifts,Path=SelectedItem}">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20" Height="20"
@@ -42,7 +55,7 @@
         <controls:WindowCommands Background="#00000000">
             <Button Command="{Binding FromCSVCommand}">
                 <StackPanel Orientation="Horizontal">
-                    <Rectangle Width="20" Height="20"
+                    <Rectangle Width="20" Height="20" 
                    Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Visual="{StaticResource appbar_folder_open}" Stretch="Fill"

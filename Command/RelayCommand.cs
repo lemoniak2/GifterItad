@@ -12,11 +12,11 @@ namespace Gifter.Command
         {
             if (_canexecute != null)
             {
-                return _canexecute();
+                return _canexecute(parameter);
             }
             return true;
         }
-        public RelayCommand(Action t, Func<bool> p)
+        public RelayCommand(Action t, Func<object,bool> p)
             : this(t)
         {
             _canexecute = p;
@@ -37,7 +37,7 @@ namespace Gifter.Command
             }
         }
         private Action _execute;
-        private Func<bool> _canexecute;
+        private Func<object,bool> _canexecute;
         public void Execute(object parameter)
         {
             if (_execute != null)

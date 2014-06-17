@@ -12,6 +12,7 @@ using Gifter.DAL;
 using System.IO;
 using Gifter.DataOperator;
 using System.Windows.Threading;
+using Gifter.View;
 
 namespace Gifter.ViewModel
 {
@@ -40,14 +41,62 @@ namespace Gifter.ViewModel
                     RandomizeFromFile();
                 }
             });
-            FromCSVCommand = new CSVCommand(this);
-            GridSelectionChangedCommand = new GridSelectionChangedCommand(this);
-            AddGift = new AddGiftCommand(this, _giftrepo);
-            DeleteGift = new DeleteGiftCommand(this, _giftrepo);
+            FromCSVCommand = new RelayCommand(
+                () => 
+                {
+                    PathCSV = new Dialog().OpenDialog();
+                },
+                (object p) => 
+                { 
+                    return PathCSV == null ? true : false; 
+                });
+            GridSelectionChangedCommand = new RelayCommand(
+                () =>
+                {
+                    ImgVisibility = Visibility.Visible;
+                    TileVisibility = Visibility.Hidden;
+                    WinnerText = "";
+                    WinnerVisibility = Visibility.Hidden;
+                    DescVisibility = Visibility.Visible;
+                    DrawEnable = true;
+                    WinnerDataVisibility = Visibility.Hidden;
+                    WinnerData = "";
+                    WinnerColor = new SolidColorBrush(Color.FromArgb(204, 17, 158, 218));
+                },
+                (object p) =>
+                {
+                    return p == null ? false : true;
+                }
+                );
+            AddGift = new RelayCommand(
+                () => 
+                {
+                    AddGiftWindow p = new AddGiftWindow();
+                    p.DataContext = new AddGiftWindowViewModel(_giftrepo);
+                    p.ShowDialog();
+                    Refresh();
+                }
+                );
+            DeleteGift = new RelayCommand(
+                () =>
+                {
+                    // Usuwanie jednego
+
+                    Refresh();
+                },
+                (object p) =>
+                {
+                    return p == null ? false : true;
+                });
+            DeleteAllGifts = new RelayCommand(
+                () =>
+                {
+                    _giftrepo.DeleteAllGifts();
+                    Refresh();
+                }
+                );
         }
-        private GiftRepository _giftrepo;
-        public ICommand AddGift { get; private set; }
-        public ICommand DeleteGift { get; private set; }
+        
         public void Refresh()
         {
             Gifts.Clear();
@@ -57,6 +106,11 @@ namespace Gifter.ViewModel
             }
         }
         #region // Randomize with file or without
+        private GiftRepository _giftrepo;
+        public ICommand AddGift { get; private set; }
+        public ICommand DeleteGift { get; private set; }
+        public ICommand DeleteAllGifts { get; set; }
+        public GiftViewModel GiftToDelete { get; set; }
         public void RandomizeFromFile()
         {
             _lenght = File.ReadAllLines(PathCSV).Length;
