@@ -36,7 +36,7 @@ namespace Gifter.ViewModel
 
             LoadCommand = new RelayCommand(() =>
                 {
-                    Gift.ImageUrl = new Dialog().OpenDialog2();
+                    Gift.ImageUrl = new Dialog().OpenImage();
                 });
             Gift = new GiftViewModel();
         }

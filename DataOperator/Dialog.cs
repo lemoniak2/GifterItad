@@ -9,10 +9,11 @@ namespace Gifter.DataOperator
 {
     class Dialog
     {
-        public string OpenDialog()
+
+        public string CreateDialog(string Filter)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Pliki CSV (.csv)|*.csv|Wszystkie pliki (*.*)|*.*";
+            openFileDialog.Filter = Filter;
             string result = "";
             if (openFileDialog.ShowDialog() == true)
             {
@@ -20,16 +21,15 @@ namespace Gifter.DataOperator
             }
             return result;
         }
-        public string OpenDialog2()
+
+        public string OpenCSV()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Obrazki (.jpg)|*.jpg|Obrazki (.png)|*.png";
-            string result = "";
-            if (openFileDialog.ShowDialog() == true)
-            {
-                result = openFileDialog.FileName;
-            }
-            return result;
+            return CreateDialog(Properties.Settings.Default.CSVFilter);
+        }
+
+        public string OpenImage()
+        {
+            return CreateDialog(Properties.Settings.Default.ImageFilter);
         }
         
     }

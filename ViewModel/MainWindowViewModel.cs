@@ -19,10 +19,18 @@ namespace Gifter.ViewModel
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+        private void RandomVisibilities()
+        {
+            ImgVisibility = Visibility.Hidden;
+            TileVisibility = Visibility.Visible;
+            QuestionMarkVisibility = Visibility.Visible;
+            DrawEnable = false;
+        }
+
         public MainWindowViewModel()
         {
             SelectedGift = new GiftViewModel();
-            _giftrepo = new GiftRepository(@".\..\..\Data\Reward\Gifts.xml");
+            _giftrepo = new GiftRepository(Properties.Settings.Default.GiftsPath);
             Gifts = new ObservableCollection<GiftViewModel>();
             Refresh();
             RandomCommand = new RelayCommand(() =>
@@ -31,8 +39,12 @@ namespace Gifter.ViewModel
                 {
                     _dialognumber = new DialogNumber();
                     _dialognumber.DataContext = this;
-                    _dialognumber.ShowDialog();
-                    Randomize();
+                    if (_dialognumber.ShowDialog() == true)
+                    {
+                        RandomVisibilities();
+                        Randomize();
+                    }
+                   
                 }
                 else
                 {
@@ -41,26 +53,22 @@ namespace Gifter.ViewModel
                     WinnerVisibility = Visibility.Visible;
                     WinnerDataVisibility = Visibility.Visible;
                     RandomizeFromFile();
+                    RandomVisibilities();
                 }
-                ImgVisibility = Visibility.Hidden;
-                TileVisibility = Visibility.Visible;
-                QuestionMarkVisibility = Visibility.Visible;
-                DrawEnable = false;
+                
             });
             FromCSVCommand = new RelayCommand(
                 () => 
                 {
-                    PathCSV = new Dialog().OpenDialog();
+                    PathCSV = new Dialog().OpenCSV();
                     if (!String.IsNullOrEmpty(PathCSV))
                     {
                         GetRandom = true;
                     }
                     else GetRandom = false;
+
+                    LoadXmlEnable = !GetRandom;
                      
-                },
-                (object p) => 
-                { 
-                    return PathCSV == null ? true : false; 
                 });
             GridSelectionChangedCommand = new RelayCommand(
                 () =>
@@ -168,7 +176,7 @@ namespace Gifter.ViewModel
             if (_count <= 50)
             {
                 Random rnd = new Random();
-                RandomValue = rnd.Next(1, GenerateNumberMax).ToString();
+                RandomValue = rnd.Next(1, GenerateNumberMax+1).ToString();
             }
             else
             {
@@ -278,8 +286,12 @@ namespace Gifter.ViewModel
             set { _drawEnable = value; OnPropertyChanged("DrawEnable"); }
         }
 
-
-
+        private bool _loadXmlEnable = true;
+        public bool LoadXmlEnable
+        {
+            get { return _loadXmlEnable; }
+            set { _loadXmlEnable = value; OnPropertyChanged("LoadXmlEnable"); }
+        }
 
         public string PathCSV { get; set; }
         public ObservableCollection<GiftViewModel> Gifts { get; set; }

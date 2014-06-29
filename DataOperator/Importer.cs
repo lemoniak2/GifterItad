@@ -27,11 +27,11 @@ namespace Gifter.DataOperator
         }
         public string CopyFileName(string imageUrl,string currentProjectPath)
         {
-            var tocopy = Path.Combine(currentProjectPath, @".\..\..\Data\Images\");
+            var tocopy = Path.Combine(currentProjectPath, Properties.Settings.Default.ImagesPath);
             var tmp = Path.GetFullPath(imageUrl);
             var tmp2 = Path.GetFullPath(tocopy) + Path.GetFileName(tmp);
             File.Copy(tmp, tmp2, true);
-            return @".\..\..\Data\Images\" + Path.GetFileName(tmp);
+            return Properties.Settings.Default.ImagesPath + Path.GetFileName(tmp);
         }
     }
 }

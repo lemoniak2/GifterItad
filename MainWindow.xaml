@@ -53,7 +53,7 @@
     </controls:MetroWindow.LeftWindowCommands>
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands Background="#00000000">
-            <Button Command="{Binding FromCSVCommand}">
+            <Button IsEnabled="{Binding LoadXmlEnable}" Command="{Binding FromCSVCommand}">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20" Height="20" 
                    Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">

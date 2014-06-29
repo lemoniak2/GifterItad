@@ -40,12 +40,8 @@ namespace Gifter.ViewModel
         public string ImageUrl
         {
             get { return _imageurl; }
-            set { 
+            set {
                 _imageurl = value;
-                if (String.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException("Podaj wartosc");
-                }
             }
         }
         
