@@ -23,7 +23,7 @@ namespace Gifter.DataOperator
         }
         public int GetLenght()
         {
-            return File.ReadAllLines(_path).Length;
+            return File.ReadAllLines(_path, Encoding.UTF8).Length;
         }
         public string CopyFileName(string imageUrl,string currentProjectPath)
         {
