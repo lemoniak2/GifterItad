@@ -126,7 +126,7 @@
                         <Button IsEnabled="{Binding DrawEnable}" Content="Losuj" CommandParameter="{Binding ElementName=RandTile}" Command="{Binding RandomCommand}" Margin="5,5,5,5" Name="btnDraw" Height="32" Width="90" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
                     </Viewbox>
                     <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
-                        <TextBlock Margin="5,5,5,5" Width="150"  Height="150" Name="txtDescription" TextWrapping="Wrap" Visibility="{Binding DescVisibility}" HorizontalAlignment="Center"  VerticalAlignment="Top" Text="{Binding ElementName=dgGifts, Path=SelectedItem.Description}" />
+                        <TextBlock Margin="5,5,5,5" Width="150" FontSize="10"  Height="150" Name="txtDescription" TextWrapping="Wrap" Visibility="{Binding DescVisibility}" HorizontalAlignment="Center"  VerticalAlignment="Top" Text="{Binding ElementName=dgGifts, Path=SelectedItem.Description}" />
                     </Viewbox>
                 </Grid>
             </GroupBox>

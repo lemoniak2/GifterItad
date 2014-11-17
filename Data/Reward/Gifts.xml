@@ -2,20 +2,50 @@
 <root>
   <gift>
     <giftid>1</giftid>
-    <name>Nokia lumia</name>
-    <imageurl>.\..\..\Data\Images\lumia.png</imageurl>
-    <description>Przykładowy opis...</description>
+    <name><![CDATA[Tablet Dell  Venue 8 Pro Z3740D]]></name>
+    <imageurl>.\..\..\Data\Images\dell.png</imageurl>
+    <description><![CDATA[• Wyświetlacz 8” IPS, 1280x800 pikseli
+• Procesor: Intel Atom 4x 1.33 Ghz
+• 2GB RAM
+• 32 GB FLASH
+• komunikacja: Bluetooth, Wi-Fi 
+• 2 kamery
+• Windows 8.1
+• Pakiet Office Home & Student
+]]></description>
   </gift>
   <gift>
     <giftid>2</giftid>
-    <name>Play Station 3</name>
-    <imageurl>.\..\..\Data\Images\ps3.png</imageurl>
-    <description>Przykładowy opis...</description>
+    <name><![CDATA[Nokia Lumia 625]]></name>
+    <imageurl>.\..\..\Data\Images\nokia.png</imageurl>
+    <description><![CDATA[• Wyświetlacz 4,7” (480x800 pikseli)
+• Procesor: Dwurdzeniowy Qualcomm Snapdragon™ S4 1.2 GHz
+• Pamięć wbudowana: 8GB
+• Aparat: 5Mpix
+• Łączność 4G
+]]></description>
   </gift>
   <gift>
     <giftid>3</giftid>
-    <name>Xbox 360</name>
-    <imageurl>.\..\..\Data\Images\Xbox.jpg</imageurl>
-    <description>Przykładowy opis...</description>
+    <name><![CDATA[Czytnik E-book: Amazon Kindle 5]]></name>
+    <imageurl>.\..\..\Data\Images\kindle.png</imageurl>
+    <description><![CDATA[• Ekran: 6” (800x600 pikseli)
+• Pamięć 2GB
+• Komunikacja: Wi-Fi, USB
+• Obsługa plików: (.txt), PDF (.pdf), Mobipocket (.prc, .mobi, .mbp), Kindle AZW z DRM (.azw1), Kindle AZW z DRM (.azw1), Topaz (.tpz, .tan)   
+]]></description>
+  </gift>
+  <gift>
+    <giftid>4</giftid>
+    <name><![CDATA[Samsung Galaxy Tab 3 T110]]></name>
+    <imageurl>.\..\..\Data\Images\samsung.png</imageurl>
+    <description><![CDATA[• Wyświetlacz: 7” (1024x600 pikseli)
+• Procesor: Dwurdzeniowy Marvell Armada, 1.2 Ghz
+• 1GB RAM
+• 8GB FLASH
+• Android 4.2 Jelly Bean
+• Komunikacja: Bluetooth, Wi-Fi
+• Kamera: 2Mpix                                   
+]]></description>
   </gift>
 </root>

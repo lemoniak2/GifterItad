@@ -35,12 +35,15 @@ namespace Gifter.DAL
         }
         public void Create(GiftViewModel g)
         {
-            g.GiftId = Int32.Parse(_root.Descendants("gift").Last().Element("giftid").Value) + 1;
+            if (_root.Descendants("gift").Any())
+                g.GiftId = Int32.Parse(_root.Descendants("gift").Last().Element("giftid").Value) + 1;
+            else
+                g.GiftId = 1;
             _root.Add(new XElement("gift",
                 new XElement("giftid", g.GiftId.ToString()),
-                new XElement("name", g.Name),
+                new XElement("name", new XCData(g.Name)),
                 new XElement("imageurl", g.ImageUrl.ToString()),
-                new XElement("description", g.Description.ToString())));
+                new XElement("description", new XCData(g.Description.ToString()))));
             _root.Save(_path);
         }
 
